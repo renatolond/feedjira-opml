@@ -8,4 +8,6 @@ require "feedjira/parser/opml_head"
 require "feedjira/parser/opml_body"
 require "feedjira/parser/opml"
 
-Feedjira::Feed.add_feed_class(Feedjira::Parser::OPML)
+Feedjira.configure do |config|
+  config.parsers.unshift(Feedjira::Parser::OPML)
+end

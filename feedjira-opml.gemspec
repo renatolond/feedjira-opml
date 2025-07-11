@@ -23,11 +23,5 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = "https://rubygems.org"
   end
 
-  spec.add_development_dependency "bundler", "~> 1.8"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "minitest", "~> 5.5"
-  spec.add_development_dependency "coveralls", "~> 0"
-  spec.add_development_dependency "rubocop", "~> 0"
-
-  spec.add_runtime_dependency "feedjira", "~> 2.0"
+  spec.add_runtime_dependency "feedjira", "~> 3.0"
 end
