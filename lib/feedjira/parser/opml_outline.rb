@@ -4,6 +4,8 @@ module Feedjira
       include SAXMachine
       include FeedUtilities
 
+      elements :outline, as: :outlines, class: OPMLOutline
+
       attribute :type
       attribute :text
 
