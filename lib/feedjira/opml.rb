@@ -1,12 +1,13 @@
-require "uri"
+# frozen_string_literal: true
+
+require_relative "opml/version"
+
 require "feedjira"
 
-require "feedjira/opml/version"
-
-require "feedjira/parser/opml_outline"
-require "feedjira/parser/opml_head"
-require "feedjira/parser/opml_body"
-require "feedjira/parser/opml"
+require_relative "parser/opml_outline"
+require_relative "parser/opml_head"
+require_relative "parser/opml_body"
+require_relative "parser/opml"
 
 Feedjira.configure do |config|
   config.parsers.unshift(Feedjira::Parser::OPML)

@@ -1,12 +1,14 @@
-require_relative "minitest_helper"
+# frozen_string_literal: true
 
-class TestOPML < Minitest::Test
+require "test_helper"
+
+class Feedjira::TestOpml < Minitest::Test
   describe "Parser" do
     before do
-      file = File.open(File.expand_path("../fixtures/basic.opml", __FILE__), "r")
+      file = File.open(File.expand_path("../../fixtures/basic.opml", __FILE__), "r")
       xml = file.read
 
-      @basic_feed = Feedjira::Feed.parse(xml)
+      @basic_feed = Feedjira.parse(xml)
     end
 
     it "uses the OPML parser" do
@@ -78,10 +80,10 @@ class TestOPML < Minitest::Test
 
     describe "for outlines" do
       before do
-        file = File.open(File.expand_path("../fixtures/outline.opml", __FILE__), "r")
+        file = File.open(File.expand_path("../../fixtures/outline.opml", __FILE__), "r")
         xml = file.read
 
-        @outline = Feedjira::Feed.parse(xml)
+        @outline = Feedjira.parse(xml)
       end
       it "can find the other outline attributes" do
         outline = @outline.body.outlines.first
@@ -104,10 +106,10 @@ class TestOPML < Minitest::Test
 
     describe "for subscription lists" do
       before do
-        file = File.open(File.expand_path("../fixtures/subscription-list.opml", __FILE__), "r")
+        file = File.open(File.expand_path("../../fixtures/subscription-list.opml", __FILE__), "r")
         xml = file.read
 
-        @list_feed = Feedjira::Feed.parse(xml)
+        @list_feed = Feedjira.parse(xml)
       end
 
       it "gets an outline type" do
