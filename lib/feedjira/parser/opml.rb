@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Feedjira
   module Parser
     class OPML
@@ -7,8 +9,8 @@ module Feedjira
       element :head, class: OPMLHead
       element :body, class: OPMLBody
 
-      def self.able_to_parse?(xml) #:nodoc:
-        (/\<opml/ =~ xml)
+      def self.able_to_parse?(xml) # :nodoc:
+        xml.include?("<opml")
       end
     end
   end
