@@ -124,6 +124,25 @@ module Feedjira
           assert_equal uri, @list_feed.body.outlines.first.xml_url
         end
       end
+      describe "for subscription lists with subelements" do
+        before do
+          file = File.open(File.expand_path("../fixtures/subscription-list-subelements.opml", __dir__), "r")
+          xml = file.read
+
+          @list_feed = Feedjira.parse(xml)
+        end
+
+        it "gets two outlines with rss type" do
+          assert_equal "rss", @list_feed.body.outlines.first.type
+          assert_equal "rss", @list_feed.body.outlines[1].outlines.first.type
+        end
+        it "gets an subelement type" do
+          outline_with_subelements = @list_feed.body.outlines[1]
+          assert_kind_of Array, outline_with_subelements.outlines
+          assert_equal "Some more feeds", outline_with_subelements.title
+          assert_nil outline_with_subelements.type
+        end
+      end
     end
   end
 end

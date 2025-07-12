@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Subscription List Title</title>
+    <docs>http://dev.opml.org/spec2.html</docs>
+  </head>
+  <body>
+    <outline type="rss" text="Outline 1 text" xmlUrl="http://www.example.com/outline/1.rss" />
+    <outline title="Some more feeds" text="Some more feeds">
+		<outline type="rss" text="Outline 2 text" xmlUrl="http://www.example.com/outline/2.rss" />
+	</outline>
+  </body>
+</opml>
